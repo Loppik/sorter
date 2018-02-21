@@ -90,58 +90,5 @@ class Sorter {
 
 }
 
-const AGE_COMPARATOR = (left, right) => left.age - right.age;
-const REVERSE_COMPARATOR = (left, right) => right - left;
-const STRINGIFY_COMPARATOR = (left, right) => JSON.stringify(left, null, 2).length - JSON.stringify(right, null, 2).length;
-
-let sorter = new Sorter();
-
-sorter.add({ age: 30, name: 'Dzmitry' });
-sorter.add({ age: 40, name: 'Alex' });
-
-sorter.setComparator(AGE_COMPARATOR);
-sorter.sort([1, 0]);
-
-sorter.add(2);
-sorter.add(10);
-
-sorter.setComparator(REVERSE_COMPARATOR);
-sorter.sort([2, 3]);
-
-sorter.setComparator(STRINGIFY_COMPARATOR);
-sorter.add('hello');
-sorter.add('hello world');
-
-sorter.sort([0, 2]);
-sorter.sort([1, 3]);
-sorter.sort([5, 2]);
-
-console.log(sorter.at(0));
-console.log(sorter.at(1));
-console.log(sorter.at(2));
-console.log(sorter.at(3));
-console.log(sorter.at(4));
-console.log(sorter.at(5));
-console.log(JSON.stringify(sorter.at(4), null, 2).length + " - " + JSON.stringify(sorter.at(5), null, 2).length);
-
-
-
-// sorter.add({ age: 20, name: 'Alex' });
-// sorter.sort([0]);
-// sorter.sort([0]);
-//
-// sorter.add({ age: 5, course: 'Rolling Scopes' });
-// sorter.add({ age: 18, smth: 'Anything' });
-// sorter.add({ age: 7, smth: 'Some' });
-//
-// sorter.setComparator(STRINGIFY_COMPARATOR);
-// sorter.sort([2, 1]);
-// sorter.sort([3, 1]);
-//
-// console.log(sorter.at(0));
-// console.log(sorter.at(1));
-// console.log(sorter.at(2));
-// console.log(sorter.at(3));
-// console.log(JSON.stringify(sorter.at(2), null, 2).length + " - " + JSON.stringify(sorter.at(3), null, 2).length)
 
 module.exports = Sorter;
